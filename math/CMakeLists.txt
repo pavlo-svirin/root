@@ -9,7 +9,6 @@ project(ROOT::math)
 include(${ROOT_GLOBAL_SOURCE_DIR}/add_inc/RootInitExternalProject.cmake)
 ROOT_INIT_EXTERNAL_PROJECT(ROOT::math)
 
-add_subdirectory(mathcore)
 if(mathmore)
   add_subdirectory(mathmore)
 endif()
