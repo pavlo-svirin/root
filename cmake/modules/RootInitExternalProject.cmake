@@ -4,20 +4,20 @@ FUNCTION(ROOT_INIT_EXTERNAL_PROJECT project_name)
   set(CMAKE_CXX_STANDARD 17)
   set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-  set(CMAKE_MODULE_PATH ${ROOT_MAIN_SOURCE_DIR}/cmake/modules/)
+  set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules/)
 
-  if(ROOT_MAIN_BINARY_DIR)
-  	set(CMAKE_INSTALL_INCLUDEDIR ${ROOT_MAIN_BINARY_DIR}/include)
+  if(CMAKE_BINARY_DIR)
+  	set(CMAKE_INSTALL_INCLUDEDIR ${CMAKE_BINARY_DIR}/include)
   endif()
   #include(SearchInstalledSoftware)
   include(SetROOTVersion)
 
   include(/root-mount/root-install-package/cmake/ROOTConfig.cmake)
-  #include(${ROOT_MAIN_BINARY_DIR}/ROOTConfig.cmake)
-  include(${ROOT_MAIN_SOURCE_DIR}/cmake/modules/RootInstallDirs.cmake)
-  include(${ROOT_MAIN_SOURCE_DIR}/cmake/modules/CheckCompiler.cmake)
-  include(${ROOT_MAIN_SOURCE_DIR}/cmake/modules/RootMacros.cmake)
-  include(${ROOT_MAIN_SOURCE_DIR}/cmake/modules/RootBuildOptions.cmake)
+  #include(${CMAKE_BINARY_DIR}/ROOTConfig.cmake)
+  include(${CMAKE_SOURCE_DIR}/cmake/modules/RootInstallDirs.cmake)
+  include(${CMAKE_SOURCE_DIR}/cmake/modules/CheckCompiler.cmake)
+  include(${CMAKE_SOURCE_DIR}/cmake/modules/RootMacros.cmake)
+  include(${CMAKE_SOURCE_DIR}/cmake/modules/RootBuildOptions.cmake)
 
   #---Set paths where to put the libraries, executables and headers------------------------------
   file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/lib) # prevent mkdir races
